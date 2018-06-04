@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">InventoryApp</string>
+    <string name="show_specific_one">Show Specific One</string>
+    <string name="show_inventory">Show Inventory</string>
+    <string name="product">PRODUCT</string>
+    <string name="name">name</string>
+    <string name="price">price</string>
+    <string name="price_units">$</string>
+    <string name="quantity">quantity</string>
+    <string name="supplier">SUPPLIER</string>
+    <string name="phone_number">phone number</string>
+    <string name="qustion_mark">\?</string>
+    <string name="product_id">Product ID</string>
+    <string name="save">SAVE</string>
+</resources>
