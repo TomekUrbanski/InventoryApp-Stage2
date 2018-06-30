@@ -5,48 +5,42 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+
+    <ListView
+        android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent" />
 
-        <RelativeLayout
-            android:id="@+id/specific_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="@dimen/padding_main"
-            android:visibility="gone">
 
-            <TextView
-                style="@style/SpecificBarTextStyle"
-                android:gravity="center_horizontal"
-                android:text="@string/product_id" />
+    <RelativeLayout
+        android:id="@+id/empty_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
 
-            <EditText
-                android:id="@+id/edit_specific_id"
-                style="@style/SpecificBarEditTextStyle"
-                android:hint="@string/qustion_mark"
-                android:inputType="number" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/accept_number_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="@dimen/margin_main"
-                android:src="@drawable/ic_done"
-                android:text="@string/price_units" />
-
-        </RelativeLayout>
 
         <TextView
-            android:id="@+id/text_view_pet"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/margin_activity" />
+            android:id="@+id/empty_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif-medium"
+            android:paddingTop="16dp"
+            android:text="@string/title_empty_view"
+            android:textAppearance="?android:textAppearanceMedium" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/empty_subtitle_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/empty_title_text"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif"
+            android:paddingTop="8dp"
+            android:text="@string/tip_empty_view"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#A2AAB0" />
+    </RelativeLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

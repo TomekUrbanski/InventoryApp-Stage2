@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,25 +13,25 @@
         android:orientation="horizontal">
 
         <TextView
-            android:text="@string/product"
-            style="@style/CategoryStyle" />
+            style="@style/CategoryStyle"
+            android:text="@string/product" />
 
         <LinearLayout
-            android:layout_height="wrap_content"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:paddingLeft="4dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="4dp">
 
             <EditText
                 android:id="@+id/edit_product_name"
+                style="@style/EditorFieldStyle"
                 android:hint="@string/name"
-                android:inputType="textCapWords"
-                style="@style/EditorFieldStyle" />
+                android:inputType="textCapWords" />
 
             <RelativeLayout
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:paddingLeft="4dp">
 
                 <EditText
@@ -47,11 +46,37 @@
                     android:text="@string/price_units" />
             </RelativeLayout>
 
-            <EditText
-                android:id="@+id/edit_quantity"
-                android:hint="@string/quantity"
-                android:inputType="number"
-                style="@style/EditorFieldStyle" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="4dp">
+
+                <Button
+                    android:id="@+id/minus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/minus" />
+
+                <EditText
+                    android:id="@+id/edit_quantity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:hint="@string/quantity"
+                    android:inputType="number"
+                    android:maxLength="4" />
+
+                <Button
+                    android:id="@+id/plus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/plus" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -64,27 +89,27 @@
         android:orientation="horizontal">
 
         <TextView
-            android:text="@string/supplier"
-            style="@style/CategoryStyle" />
+            style="@style/CategoryStyle"
+            android:text="@string/supplier" />
 
         <LinearLayout
-            android:layout_height="wrap_content"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:paddingLeft="4dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="4dp">
 
             <EditText
                 android:id="@+id/edit_supplier_name"
+                style="@style/EditorFieldStyle"
                 android:hint="@string/name"
-                android:inputType="textCapWords"
-                style="@style/EditorFieldStyle" />
+                android:inputType="textCapWords" />
 
             <EditText
                 android:id="@+id/edit_phone_number"
+                style="@style/EditorFieldStyle"
                 android:hint="@string/phone_number"
-                android:inputType="phone"
-                style="@style/EditorFieldStyle" />
+                android:inputType="phone" />
 
         </LinearLayout>
 

@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/show_whole_data"
-        android:title="@string/show_inventory"
+        android:title="@string/delete_all"
          />
 
     <item

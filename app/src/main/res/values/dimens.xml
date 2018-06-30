@@ -4,4 +4,5 @@
     <dimen name="margin_main">16dp</dimen>
     <dimen name="padding_main">8dp</dimen>
     <dimen name="specific_bar_text">24sp</dimen>
+    <dimen name="padding_list_item">16dp</dimen>
 </resources>

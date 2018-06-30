@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">InventoryApp</string>
     <string name="show_specific_one">Show Specific One</string>
-    <string name="show_inventory">Show Inventory</string>
     <string name="product">PRODUCT</string>
     <string name="name">name</string>
     <string name="price">price</string>
@@ -12,4 +11,21 @@
     <string name="qustion_mark">\?</string>
     <string name="product_id">Product ID</string>
     <string name="save">SAVE</string>
+    <string name="delete_all">Delete all</string>
+    <string name="tip_empty_view">Feel free to add first item</string>
+    <string name="title_empty_view">Your inventory is empty</string>
+    <string name="add_title">Add new item</string>
+    <string name="edit_title">Edit existing item</string>
+    <string name="delete">DELETE</string>
+    <string name="insert_item_failed">Error with saving product</string>
+    <string name="insert_item_successful">SAVED</string>
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+    <string name="discard">Discard</string>
+    <string name="keep_editing">Keep Editing</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_msg">You really want delete that item ?</string>
+    <string name="decrese_error_msg">Item not available</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+
 </resources>
