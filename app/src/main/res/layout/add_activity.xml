@@ -67,7 +67,7 @@
                     android:gravity="center"
                     android:hint="@string/quantity"
                     android:inputType="number"
-                    android:maxLength="4" />
+                    android:maxLength="5" />
 
                 <Button
                     android:id="@+id/plus"
@@ -92,7 +92,7 @@
             style="@style/CategoryStyle"
             android:text="@string/supplier" />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -108,11 +108,22 @@
             <EditText
                 android:id="@+id/edit_phone_number"
                 style="@style/EditorFieldStyle"
+                android:layout_below="@+id/edit_supplier_name"
                 android:hint="@string/phone_number"
+                android:maxLength="9"
                 android:inputType="phone" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/call"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@drawable/call"
+        android:visibility="gone"
+        />
 
 </LinearLayout>

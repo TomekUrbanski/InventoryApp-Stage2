@@ -110,9 +110,6 @@ public class MainActivity extends AppCompatActivity
                 deleteAll();
                 return true;
 
-            case R.id.show_specific:
-
-                return true;
         }
         return super.onOptionsItemSelected(item);
     }

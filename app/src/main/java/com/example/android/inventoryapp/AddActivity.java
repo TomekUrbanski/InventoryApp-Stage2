@@ -36,6 +36,7 @@ public class AddActivity extends AppCompatActivity implements
     private EditText mSupplierName;
     private EditText mPhoneNumber;
 
+
     private boolean mItemHasChanged = false;
 
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
@@ -53,13 +54,19 @@ public class AddActivity extends AppCompatActivity implements
 
         Intent intent = getIntent();
         mCurrentInventoryUri = intent.getData();
+        final Button call = findViewById(R.id.call);
+        final Button plus = findViewById(R.id.plus);
+        final Button minus = findViewById(R.id.minus);
 
         if (mCurrentInventoryUri == null) {
             setTitle(getString(R.string.add_title));
+            plus.setVisibility(View.GONE);
+            minus.setVisibility(View.GONE);
             invalidateOptionsMenu();
         } else {
 
             setTitle(getString(R.string.edit_title));
+            call.setVisibility(View.VISIBLE);
             getLoaderManager().initLoader(EXISTING_INVENTORY_LOADER, null, this);
         }
 
@@ -74,18 +81,18 @@ public class AddActivity extends AppCompatActivity implements
         mPhoneNumber = findViewById(R.id.edit_phone_number);
         mPhoneNumber.setOnTouchListener(mTouchListener);
 
-        final Button plus = findViewById(R.id.plus);
         plus.setOnTouchListener(mTouchListener);
-        Button minus = findViewById(R.id.minus);
         minus.setOnTouchListener(mTouchListener);
 
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String quantityString = mQuantity.getText().toString().trim();
-                int quantity = 0;
-                if (!TextUtils.isEmpty(quantityString)) {
+                int quantity = Integer.parseInt(quantityString);
+                if (quantity < 99999) {
                     quantity = Integer.parseInt(quantityString);
+                } else {
+                    return;
                 }
 
                 mQuantity.setText(String.valueOf(quantity + 1));
@@ -96,12 +103,25 @@ public class AddActivity extends AppCompatActivity implements
             @Override
             public void onClick(View view) {
                 String quantityString = mQuantity.getText().toString().trim();
-                int quantity = 0;
-                if (!TextUtils.isEmpty(quantityString)) {
+                int quantity = Integer.parseInt(quantityString);
+                if (quantity > 0) {
                     quantity = Integer.parseInt(quantityString);
+                } else {
+                    return;
                 }
 
                 mQuantity.setText(String.valueOf(quantity - 1));
+            }
+        });
+
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String number = mPhoneNumber.getText().toString().trim();
+                Uri call = Uri.parse("tel:" + number);
+                Intent intent = new Intent(Intent.ACTION_DIAL, call);
+                startActivity(intent);
             }
         });
 
