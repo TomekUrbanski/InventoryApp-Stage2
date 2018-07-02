@@ -9,13 +9,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.example.android.inventoryapp.data.InventoryContract.InventoryEntry;
 
 public class InventoryProvider extends ContentProvider {
-
-    public static final String LOG_TAG = InventoryProvider.class.getSimpleName();
 
     private static final int INVENTORY = 100;
     private static final int INVENTORY_ID = 101;
@@ -106,7 +103,6 @@ public class InventoryProvider extends ContentProvider {
         long id = database.insert(InventoryEntry.TABLE_NAME, null, values);
 
         if (id == -1) {
-            Log.e(LOG_TAG, "Failed to insert row for " + uri);
             return null;
         }
 

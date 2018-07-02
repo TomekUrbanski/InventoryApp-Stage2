@@ -121,7 +121,9 @@ public class AddActivity extends AppCompatActivity implements
                 String number = mPhoneNumber.getText().toString().trim();
                 Uri call = Uri.parse("tel:" + number);
                 Intent intent = new Intent(Intent.ACTION_DIAL, call);
-                startActivity(intent);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
             }
         });
 
@@ -144,8 +146,9 @@ public class AddActivity extends AppCompatActivity implements
         int phone = 0;
 
 
-        if (mCurrentInventoryUri == null && TextUtils.isEmpty(nameProduct) && TextUtils.isEmpty(priceString) &&
-                TextUtils.isEmpty(quantityString) && TextUtils.isEmpty(nameSupplier) && TextUtils.isEmpty(phoneString)) {
+        if (mCurrentInventoryUri == null && TextUtils.isEmpty(nameProduct) || TextUtils.isEmpty(priceString) ||
+                TextUtils.isEmpty(quantityString) || TextUtils.isEmpty(nameSupplier) || TextUtils.isEmpty(phoneString)) {
+            Toast.makeText(this, R.string.empty_fields_alert, Toast.LENGTH_LONG).show();
             return;
         }
         ContentValues values = new ContentValues();
@@ -186,6 +189,8 @@ public class AddActivity extends AppCompatActivity implements
                 Toast.makeText(this, R.string.insert_item_successful, Toast.LENGTH_SHORT).show();
             }
         }
+
+        finish();
     }
 
     @Override
@@ -213,8 +218,6 @@ public class AddActivity extends AppCompatActivity implements
 
             case R.id.action_save:
                 saveItem();
-                finish();
-
                 return true;
 
             case R.id.action_delete:
