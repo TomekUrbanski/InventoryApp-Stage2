@@ -119,8 +119,8 @@
 
     <Button
         android:id="@+id/call"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/b_call_size"
+        android:layout_height="@dimen/b_call_size"
         android:layout_gravity="center"
         android:background="@drawable/call"
         android:visibility="gone"

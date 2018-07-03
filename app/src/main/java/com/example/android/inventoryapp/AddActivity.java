@@ -146,11 +146,11 @@ public class AddActivity extends AppCompatActivity implements
         int phone = 0;
 
 
-        if (mCurrentInventoryUri == null && TextUtils.isEmpty(nameProduct) || TextUtils.isEmpty(priceString) ||
-                TextUtils.isEmpty(quantityString) || TextUtils.isEmpty(nameSupplier) || TextUtils.isEmpty(phoneString)) {
-            Toast.makeText(this, R.string.empty_fields_alert, Toast.LENGTH_LONG).show();
-            return;
-        }
+//        if (mCurrentInventoryUri == null && TextUtils.isEmpty(nameProduct) || TextUtils.isEmpty(priceString) ||
+//                TextUtils.isEmpty(quantityString) || TextUtils.isEmpty(nameSupplier) || TextUtils.isEmpty(phoneString)) {
+//            Toast.makeText(this, R.string.empty_fields_alert, Toast.LENGTH_LONG).show();
+//            return;
+//        }
         ContentValues values = new ContentValues();
         values.put(InventoryEntry.COLUMN_PRODUCT_NAME, nameProduct);
 
@@ -173,6 +173,11 @@ public class AddActivity extends AppCompatActivity implements
         values.put(InventoryEntry.COLUMN_SUPPLIER_PHONE, phone);
 
         if (mCurrentInventoryUri == null) {
+            if (TextUtils.isEmpty(nameProduct) || TextUtils.isEmpty(priceString) ||
+                    TextUtils.isEmpty(quantityString) || TextUtils.isEmpty(nameSupplier) || TextUtils.isEmpty(phoneString)) {
+                Toast.makeText(this, R.string.empty_fields_alert, Toast.LENGTH_LONG).show();
+                return;
+            }
             Uri newUri = getContentResolver().insert(InventoryEntry.CONTENT_URI, values);
             if (newUri == null) {
                 Toast.makeText(this, R.string.insert_item_failed, Toast.LENGTH_SHORT).show();
@@ -181,6 +186,11 @@ public class AddActivity extends AppCompatActivity implements
             }
         } else {
 
+            if (TextUtils.isEmpty(nameProduct) || TextUtils.isEmpty(priceString) ||
+                    TextUtils.isEmpty(quantityString) || TextUtils.isEmpty(nameSupplier) || TextUtils.isEmpty(phoneString)) {
+                Toast.makeText(this, R.string.empty_fields_alert, Toast.LENGTH_LONG).show();
+                return;
+            }
             int rowsAffected = getContentResolver().update(mCurrentInventoryUri, values, null, null);
 
             if (rowsAffected == 0) {
